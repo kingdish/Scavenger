@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -14,12 +15,13 @@ public class GameManager : MonoBehaviour {
 
     private Text levelText;
     private GameObject levelImage;
-    private int level = 1;
+    private int level = 0;
     private List<Enemy> enemies;
     private bool enemiesMoving;
     private bool doingSetup;
 
     void Awake() {
+        //Debug.Log(SceneManager.sceneCount);
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour {
         enemies = new List<Enemy>();
         DontDestroyOnLoad(gameObject);
         boardScript = GetComponent<BoardManager>();
-        InitGame();
+        //InitGame();
     }
 
     private void OnLevelWasLoaded(int index) {
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour {
         Invoke("HideLevelImage", levelStartDelay);
 
         enemies.Clear();
-        boardScript.SetupScence(level);
+        boardScript.SetupScene(level);
     }
 
     private void HideLevelImage() {

@@ -95,8 +95,9 @@ public class Player : MovingObject {
 	}
 
     private void Restart() {
-        Application.LoadLevel(Application.loadedLevel);
-        //SceneManager.LoadScene(0);
+        //Application.LoadLevel(Application.loadedLevel);
+        SceneManager.UnloadSceneAsync("main");
+        SceneManager.LoadScene("main");
     }
 
     public void LoseFood (int loss) {

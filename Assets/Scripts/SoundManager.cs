@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour {
     public AudioSource musicSource;
     public static SoundManager instance = null;
 
+    public float volume = 1.0f;
     public float lowPitchRange = .95f;
     public float highPitchRange = 1.05f;
 
@@ -17,7 +18,7 @@ public class SoundManager : MonoBehaviour {
         } else if (instance != this) {
             Destroy(gameObject);
         }
-
+        musicSource.volume = volume;
         DontDestroyOnLoad(gameObject);
 	}
 

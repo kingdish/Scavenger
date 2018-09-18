@@ -88,7 +88,7 @@ public class BoardManager : MonoBehaviour
         }
     }
 
-    public void SetupScence(int level) {
+    public void SetupScene(int level) {
         BoardSetup();
         InitializeList();
         LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
